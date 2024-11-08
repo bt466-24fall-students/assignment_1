@@ -22,7 +22,7 @@
 
     -   Format Example: If you are Group 1, your branch and folder name should both be \`group_01\`.
 
-    -   On your group branch, create an RStudio Project *within*your group folder
+    -   On your group branch, create an RStudio Project *within* your group folder
 
         -   The RStudio Project name should also be \`group_01\`
 
@@ -78,12 +78,5 @@
 
 ### **Pass-Fail Criterion**
 
--   <div>
 
-    -   <div>
-
-        -   Your code satisfies all of the above requirements (except for extra credit) and runs on my computer without error
-
-        </div>
-
-    </div>
+ -   Your code satisfies all of the above requirements (except for extra credit) and runs on my computer without error
