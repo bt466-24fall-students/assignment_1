@@ -25,7 +25,7 @@ shell_path <- get_shell_path()
 kaggle_url <- "https://www.kaggle.com/api/v1/datasets/download/taseermehboob9/salary-dataset-of-business-levels"
 output_dir <- "./raw_data"
 zip_file <- file.path(output_dir, "archive.zip")
-unzip_dir <- "./salary"
+unzip_dir <- "./raw_data"
 
 # Create directories if they don't exist
 if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
