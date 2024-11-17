@@ -25,7 +25,6 @@ shell_path <- get_shell_path()
 kaggle_url <- "https://www.kaggle.com/api/v1/datasets/download/taseermehboob9/salary-dataset-of-business-levels"
 output_dir <- "./raw_data"
 zip_file <- file.path(output_dir, "archive.zip")
-unzip_dir <- "./raw_data"
 
 # Create directories if they don't exist
 if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
@@ -38,20 +37,18 @@ curl_command <- sprintf("curl -L -o %s %s", shQuote(zip_file), shQuote(kaggle_ur
 system(paste(shQuote(shell_path), "-c", shQuote(curl_command)), intern = TRUE)
 
 # Unzip command
-unzip_command <- sprintf("unzip -o %s -d %s", shQuote(zip_file), shQuote(unzip_dir))
+unzip_command <- sprintf("unzip -o %s -d %s", shQuote(zip_file), shQuote(output_dir))
 
 # Run the Unzip command
 system(paste(shQuote(shell_path), "-c", shQuote(unzip_command)), intern = TRUE)
 
 # Load the dataset
 library(readr)
-csv_file <- file.path(unzip_dir, "salary.csv")
+salary_csv <- file.path(output_dir, "salary.csv")
 
-if (file.exists(csv_file)) {
-  data_frame_name <- read_csv(csv_file)
-  # Confirm data is loaded
-  print(head(data_frame_name))
-} else {
-  stop("CSV file not found. Please check the download and extraction process.")
-}
+# Define relative path to the dataset
+salary_df <- read_csv(csv_file)
+
+
+print(head(salary_df))
 
