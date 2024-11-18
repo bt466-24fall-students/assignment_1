@@ -20,7 +20,10 @@ download.file(dataset_link, download_path, mode = "wb")
 # Read the dataset into a data frame with a clear, concise name
 Sales_data <- readr::read_csv(download_path)
 
-# Print the first few rows to confirm the data loaded successfully (optional)
-print(head(Sales_data))
+
+#Make sure Sales_data is only object in global environment
+rm(download_path, dataset_link)
+
+
 
 
