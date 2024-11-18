@@ -24,11 +24,13 @@ Sales_data <- readr::read_csv(download_path)
 #Make sure Sales_data is only object in global environment
 rm(download_path, dataset_link)
 
+
+#Make sure Sales data exists
 if (exists("Sales_data")) {
-  print("Data successfully loaded.")
-  print(head(Sales_data))  # Display first few rows of the data
+  print("Data is loaded.")
+  print(head(Sales_data))  
 } else {
-  stop("sales_data not found. Please check the script.")
+  stop("sales_data not found")
 }
 
 
