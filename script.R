@@ -2,7 +2,7 @@
 library(readr)
 
 # Define paths for downloading and reading data
-raw_data <- "group_XX/raw_data"
+raw_data <- "group_06/raw_data"
 dataset_url <- "https://data.iowa.gov/api/views/qd3t-kfqg/rows.csv?accessType=DOWNLOAD"
 
 
