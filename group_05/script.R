@@ -4,8 +4,10 @@ git_bash_path <- "C:/Program Files/Git/git-bash.exe"
 kaggle_url <- "https://www.kaggle.com/api/v1/datasets/download/taseermehboob9/salary-dataset-of-business-levels"
 output_dir <- "./raw_data"
 zip_file <- file.path(output_dir, "archive.zip")
+
+#Create folder "raw_data" if not exists
 if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
-# Write your bash commands and run them  
+
 # CURL command for downloading the dataset
 curl_command <- sprintf("curl -L -o %s %s", shQuote(zip_file), shQuote(kaggle_url))
 
@@ -19,12 +21,15 @@ unzip_command <- sprintf("unzip -o %s -d %s", shQuote(zip_file), shQuote(output_
 system(paste(shQuote(git_bash_path), "-c", shQuote(unzip_command)), intern = TRUE)
 
 # Load the dataset
+# Install required library
 library(readr)
+
+# Define a path to the csv file
 salary_csv <- file.path(output_dir, "salary.csv")
 
-# Define relative path to the dataset
+# Reads the data from the salary_csv file into the R environment as a data frame
 salary_df <- read_csv(salary_csv)
 
-
+# Display first few rows of the dataframe
 print(head(salary_df))
 
