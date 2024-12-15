@@ -2,7 +2,7 @@
 library(readr)
 
 # Define paths for downloading and reading data
-raw_data <- "group_06/raw_data"
+raw_data <- "raw_data"
 dataset_url <- "https://data.iowa.gov/api/views/qd3t-kfqg/rows.csv?accessType=DOWNLOAD"
 
 
@@ -22,3 +22,4 @@ rm(list = setdiff(ls(), "Iowa_Economic_Indicators"))
 
 # Print first 5 rows of dataset to make sure script is working
 print(head(Iowa_Economic_Indicators, 5))
+
